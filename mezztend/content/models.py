@@ -29,6 +29,9 @@ class MenuItem(Page):
         verbose_name = _("Menu item")
         verbose_name_plural = _("Menu items")
 
+    def get_absolute_url(self):
+        return '#'
+
 class TwoColumnRichTextPage(Page, TwoColumnRichText):
     """
     Implements a page with two Rich Text content fields
