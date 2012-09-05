@@ -19,6 +19,16 @@ class ContentBlock(RichText, Slugged):
     def __unicode__(self):
         return self.title
 
+class MenuItem(Page):
+    """
+    A general content type for creating menu items which have no content
+    associated with them.
+    """
+
+    class Meta:
+        verbose_name = _("Menu item")
+        verbose_name_plural = _("Menu items")
+
 class TwoColumnRichTextPage(Page, TwoColumnRichText):
     """
     Implements a page with two Rich Text content fields
