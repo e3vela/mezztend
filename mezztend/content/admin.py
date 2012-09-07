@@ -8,7 +8,7 @@ from models import ContentBlock, MenuItem, TwoColumnRichTextPage
 
 class ContentBlockAdmin(admin.ModelAdmin):
     list_display = ('title', 'description', 'slug')
-    fields = ('title', 'description', 'content', 'slug')
+    fields = ('title', 'description', 'content', 'image', 'slug')
     readonly_fields = ('slug',)
 
 

@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+from mezzanine.core.fields import FileField
 from mezzanine.core.models import RichText, Slugged
 from mezzanine.pages.models import Page
 
@@ -12,6 +13,10 @@ class ContentBlock(RichText, Slugged):
     template using the associated render_content_block tag
     """
     description = models.CharField(max_length=100)
+    image = FileField(upload_to="contentblocks", format="Image",
+                      max_length=255, null=True, blank=True,
+                      help_text="Optional, may be used in certain "
+                                "circumstances and not others")
     
     class Meta:
         db_table = "mezztend_content_contentblock"
