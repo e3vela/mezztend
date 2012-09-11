@@ -8,7 +8,12 @@ from mezzanine.pages.models import Page
 
 from mezztend.core.models import TwoColumnRichText
 
-if "contentblock" in settings.MEZZTEND_CONTENT_MODELS:
+try:
+    MODELS = settings.MEZZTEND_CONTENT_MODELS
+except AttributeError:
+    MODELS = None
+
+if not MODELS or "contentblock" in MODELS:
     class ContentBlock(RichText, Slugged):
         """
         Provides a block of rich text content which can be placed in a
@@ -26,7 +31,7 @@ if "contentblock" in settings.MEZZTEND_CONTENT_MODELS:
         def __unicode__(self):
             return self.title
 
-if "menuitem" in settings.MEZZTEND_CONTENT_MODELS:
+if not MODELS or "menuitem" in MODELS:
     class MenuItem(Page):
         """
         A general content type for creating menu items which have no content
@@ -40,7 +45,7 @@ if "menuitem" in settings.MEZZTEND_CONTENT_MODELS:
         def get_absolute_url(self):
             return '#'
 
-if "twocolumnrichtextpage" in settings.MEZZTEND_CONTENT_MODELS:
+if not MODELS or "twocolumnrichtextpage" in MODELS:
     class TwoColumnRichTextPage(Page, TwoColumnRichText):
         """
         Implements a page with two Rich Text content fields
