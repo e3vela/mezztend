@@ -4,7 +4,14 @@ from django.contrib import admin
 
 from mezzanine.pages.admin import PageAdmin, page_fieldsets
 
-from models import ContentBlock, MenuItem, TwoColumnRichTextPage
+from models import MODELS
+
+if "contentblock" in MODELS:
+    from models import ContentBlock
+if "menuitem" in MODELS:
+    from models import MenuItem
+if "twocolumnrichtextpage" in MODELS:
+    from models import TwoColumnRichTextPage
 
 class ContentBlockAdmin(admin.ModelAdmin):
     list_display = ('title', 'description', 'slug')
@@ -22,6 +29,9 @@ class MenuItemAdmin(PageAdmin):
 
     fieldsets = menu_item_fieldsets
 
-admin.site.register(MenuItem, MenuItemAdmin)
-admin.site.register(ContentBlock, ContentBlockAdmin)
-admin.site.register(TwoColumnRichTextPage, PageAdmin)
+if "contentblock" in MODELS:
+    admin.site.register(ContentBlock, ContentBlockAdmin)
+if "menuitem" in MODELS:
+    admin.site.register(MenuItem, MenuItemAdmin)
+if "twocolumnrichtextpage" in MODELS:
+    admin.site.register(TwoColumnRichTextPage, PageAdmin)
