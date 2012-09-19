@@ -31,6 +31,20 @@ if not MODELS or "contentblock" in MODELS:
         def __unicode__(self):
             return self.title
 
+if not MODELS or "internallink" in MODELS:
+    class InternalLink(Page):
+        """
+        A general content type for creating menu items that link to other parts of
+        the site
+        """
+        link = models.CharField(max_length=500)
+        class Meta:
+            verbose_name = _("Internal link")
+            verbose_name_plural = _("Internal links")
+    
+        def get_absolute_url(self):
+            return self.link
+
 if not MODELS or "menuitem" in MODELS:
     class MenuItem(Page):
         """
