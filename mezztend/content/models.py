@@ -42,7 +42,7 @@ if not MODELS or "menuitem" in MODELS:
                       "link to whatever you specify here.")
         
         class Meta:
-            db_table = "mezztend_content_contentblock"
+            db_table = "mezztend_content_menuitem"
             verbose_name = _("Menu item")
             verbose_name_plural = _("Menu items")
     
