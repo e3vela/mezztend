@@ -11,7 +11,7 @@ if not MODELS or "contentblock" in MODELS:
     
     class ContentBlockAdmin(admin.ModelAdmin):
         list_display = ('title', 'description', 'slug')
-        fields = ('title', 'description', 'content', 'image', 'slug')
+        fields = ('title', 'description', 'content', 'image', 'href', 'slug')
         readonly_fields = ('slug',)
     admin.site.register(ContentBlock, ContentBlockAdmin)
     

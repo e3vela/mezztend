@@ -24,6 +24,8 @@ if not MODELS or "contentblock" in MODELS:
                           max_length=255, null=True, blank=True,
                           help_text="Optional, may be used in certain "
                                     "circumstances and not others")
+        href = models.CharField(max_length=500, blank=True,
+            help_text="An optional link for the image or otherwise.")
         
         class Meta:
             db_table = "mezztend_content_contentblock"
