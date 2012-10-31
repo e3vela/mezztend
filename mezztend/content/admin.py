@@ -3,6 +3,7 @@ from copy import deepcopy
 from django.contrib import admin
 
 from mezzanine.pages.admin import PageAdmin, page_fieldsets
+from mezzanine.pages.models import Link
 
 from models import ContentBlock, MenuItem, TwoColumnRichTextPage
 
@@ -26,3 +27,5 @@ admin.site.register(MenuItem, MenuItemAdmin)
 
 
 admin.site.register(TwoColumnRichTextPage, PageAdmin)
+# menu item is more flexible
+admin.site.unregister(Link)
