@@ -12,3 +12,7 @@ def render_content_block(slug):
     except ContentBlock.DoesNotExist:
         cb = None
     return cb
+
+@register.as_tag
+def load_content_blocks(slug, limit=3):
+    return list(ContentBlock.objects.filter(slug__startswith=slug).order_by('slug')[:limit])
