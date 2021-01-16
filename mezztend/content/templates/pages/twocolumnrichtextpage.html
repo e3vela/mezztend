@@ -6,12 +6,12 @@
 <div class="row">
     <div class="span4">
     {% editable page.twocolumnrichtextpage.left_column %}
-    {{ page.twocolumnrichtextpage.left_column|richtext_filter|safe }}
+    {{ page.twocolumnrichtextpage.left_column|richtext_filters|safe }}
     {% endeditable %}
     </div>
     <div class="span6">
     {% editable page.twocolumnrichtextpage.right_column %}
-    {{ page.twocolumnrichtextpage.right_column|richtext_filter|safe }}
+    {{ page.twocolumnrichtextpage.right_column|richtext_filters|safe }}
     {% endeditable %}
     </div>
 </div>
