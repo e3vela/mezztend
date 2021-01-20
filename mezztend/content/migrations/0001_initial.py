@@ -8,7 +8,7 @@ import mezzanine.core.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('pages', '0005_add_sites_field'),
+        ('pages', '0004_auto_20170411_0504'),
         ('sites', '0001_initial'),
     ]
 
