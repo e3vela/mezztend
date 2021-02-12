@@ -19,6 +19,7 @@ class ContentBlockAdmin(admin.ModelAdmin):
 menu_item_fieldsets = deepcopy(page_fieldsets[:1])
 menu_item_fieldsets[0][1]["fields"] = menu_item_fieldsets[0][1]["fields"][:-1]
 menu_item_fieldsets[0][1]["fields"].insert(1, "href")
+menu_item_fieldsets[0][1]["fields"].insert(-1, "slug")
 
 
 @admin.register(MenuItem)
